@@ -1,0 +1,23 @@
+{{#extends "base"}}
+{{#block"content"}}
+<h1>User Details</h1>
+<table class="table">
+    <tr>
+        <th>User ID</th>
+        <th>Type of User</th>
+        <th>FullName</th>
+        <th>Contact Number</th>
+        <th>Email</th>
+    </tr>
+    {{#each User_Details}}
+    <tr>
+        <td>{{userID}}</td>
+        <td>{{typeofUser}}</td>
+        <td>{{fullName}}</td>
+        <td>{{contactNumber}}</td>
+        <td>{{email}}</td>
+    </tr>
+    {{/each}}
+</table>
+{{/block}}
+{{/extends}}

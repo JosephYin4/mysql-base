@@ -1,3 +1,4 @@
+DROP DATABASE homerentcare;
 -- SQL Schema for HomeRentCare
 CREATE DATABASE homerentcare;
 
@@ -5,7 +6,7 @@ USE homerentcare;
 
 CREATE TABLE User_Details
 (
- userID        unsigned int NOT NULL ,
+ userID        INT UNSIGNED NOT NULL AUTO_INCREMENT,
  typeofUser    varchar(15) NOT NULL ,
  fullName      varchar(45) NOT NULL ,
  contactNumber varchar(15) NOT NULL ,

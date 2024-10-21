@@ -1,3 +1,6 @@
+
+USE homerentcare;
+
 INSERT INTO User_Details (typeofUser, fullName, contactNumber, email) VALUES
 ('homeowner', 'Alice Johnson', '123-456-7890', 'alice.johnson@example.com'),
 ('homeowner', 'Bob Smith', '234-567-8901', 'bob.smith@example.com'),

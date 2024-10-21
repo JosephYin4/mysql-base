@@ -26,6 +26,13 @@ async function main() {
         res.send('Hello, World!');
     });
 
+    app.get('/User_Details', async (req, res) => {
+        let [userdetail] = await connection.execute('SELECT * FROM User_Details');
+        res.render('User_Details/index', {
+            'User_Details': User_Details
+        })
+    })
+
     app.listen(3000, ()=>{
         console.log('Server is running')
     });
