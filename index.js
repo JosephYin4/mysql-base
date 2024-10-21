@@ -26,10 +26,19 @@ async function main() {
         res.send('Hello, World!');
     });
 
-    app.get('/User_Details', async (req, res) => {
+    //Display the User_Details Table Data
+    app.get('/userdetail', async (req, res) => {
         let [userdetail] = await connection.execute('SELECT * FROM User_Details');
-        res.render('User_Details/index', {
-            'User_Details': User_Details
+        res.render('userdetail/index', {
+            'userdetail': userdetail
+        })
+    })
+
+    //Create a new user in User_Details Table
+    app.get('/userdetail/create', async(req,res)=>{
+        let [userdetail] = await connection.execute('SELECT * FROM User_Details');
+        res.render('userdetail/add', {
+            'userdetail': userdetail
         })
     })
 
