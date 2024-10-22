@@ -74,12 +74,12 @@ async function main() {
 
     app.get('/userdetail/:userID/edit', async function (req, res) {
         // fetch the User Details we are editing
-        const userID = req.params.userID;
+        const userId = req.params.userID;
         // in prepared statements, we give the instructions to MySQL in 2 pass
         // 1. the prepared statement - so SQL knows what we are executing and won't execute anything else
         // 2. send what is the data for each ?
         // Do you ESCAPE your MySQL statements
-        const [userdetail] = await connection.execute(`SELECT * FROM User_Details WHERE userID = ?`, [userID]);
+        const [userdetail] = await connection.execute(`SELECT * FROM User_Details WHERE userID = ?`, [userId]);
 
         // MySQL2 will always return an array of results even if there is only one result
         const userdetail1 = userdetail[0]; // retrieve the user details that we want to edit which will be at index 0
@@ -91,24 +91,21 @@ async function main() {
     })
 
     app.post('/userdetail/:userID/edit', async function (req, res) {
-        try {
-            const {typeofUser, fullName, contactNumber, email} = req.body;
+        
+            const { typeofUser, fullName, contactNumber, email } = req.body;
 
            // if (!first_name || !last_name || !company_id || !rating) {
            //     throw new Exception("Invalid values");
            //  }
 
-            const sql = `UPDATE User_Details SET typeofUser=?, fullName=?, contactNumber=?, email=? 
-            WHERE userID = ?;`
+            const sql = `UPDATE User_Details SET typeofUser=?, fullName=?, contactNumber=?, email=? WHERE userID = ?;`
 
-            const bindings = [req.params.userID, typeofUser, fullName, contactNumber, email];
+            const bindings = [typeofUser, fullName, contactNumber, email, req.params.userID];
 
             await connection.execute(sql, bindings);
 
             res.redirect("/userdetail");
-        } catch (e) {
-            res.status(400).send("Error " + e);
-        }
+        
     })
 }
 
