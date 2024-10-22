@@ -71,10 +71,10 @@ async function main() {
         // redirect tells the client (often time the broswer) to go a different URL
         res.redirect('/userdetail');
     });
-
-    app.listen(3000, ()=>{
-        console.log('Server is running')
-    });
 }
 
 main();
+
+app.listen(3000, ()=>{
+    console.log('Server is running')
+});
