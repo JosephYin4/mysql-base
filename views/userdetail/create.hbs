@@ -1,15 +1,23 @@
 {{#extends "base"}}
+
+{{#block "title"}}Create New User{{/block}}
+
 {{#block "content"}}
-<h1>Add a New User in User_Detail Table</h1>
+
+<h1>Add a New User</h1>
 <form method="POST">
     <div class="mb-3">
         <label>Type of User</label>
-        <select name="typeofUser" class="form-control">
+        <select name="userID" class="form-control">
             {{#each userdetail}}
-            <option value="{{typeofUser}}">{{name}}</option>
+            <option value="{{userID}}">{{typeofUser}}</option>
             {{/each}}
         </select>
     </div>
+    <!-- <div class="mb-3">
+        <label>Type of User</label>
+        <input type="text" class="form-control" name="typeofUser">
+    </div> -->
     <div class="mb-3">
         <label>FullName</label>
         <input type="text" class="form-control" name="fullName">
@@ -22,7 +30,7 @@
         <label>Email</label>
         <input type="text" class="form-control" name="email">
     </div>
-    <button type="submit" class="btn btn-primary">Add New User</button>
+    <button class="btn btn-primary">Submit</button>
 
 </form>
 {{/block}}

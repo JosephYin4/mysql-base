@@ -1,4 +1,4 @@
-DROP DATABASE homerentcare;
+
 -- SQL Schema for HomeRentCare
 CREATE DATABASE homerentcare;
 
