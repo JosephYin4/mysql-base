@@ -79,14 +79,14 @@ async function main() {
         // 1. the prepared statement - so SQL knows what we are executing and won't execute anything else
         // 2. send what is the data for each ?
         // Do you ESCAPE your MySQL statements
-        const [userdetail] = await connection.execute(`SELECT * FROM User_Details WHERE userID = ?`, [userId]);
+        const [userdetail] = await connection.execute(`SELECT * FROM User_Details WHERE userID = ?`, [userID]);
 
         // MySQL2 will always return an array of results even if there is only one result
-       // const userdetail = userdetail[0]; // retrieve the user details that we want to edit which will be at index 0
+        const userdetail1 = userdetail[0]; // retrieve the user details that we want to edit which will be at index 0
 
         // send the userdetail to the hbs file so the user can see details prefilled in the form
         res.render('userdetail/edit', {
-            userdetail, // => same as 'userdetail' : userdetail
+            userdetail1, // => same as 'userdetail' : userdetail
         })
     })
 
@@ -98,10 +98,10 @@ async function main() {
            //     throw new Exception("Invalid values");
            //  }
 
-            const sql = `UPDATE User_Details SET typeofUser=?, fullName=?, contactNumber, email=?,
+            const sql = `UPDATE User_Details SET typeofUser=?, fullName=?, contactNumber=?, email=? 
             WHERE userID = ?;`
 
-            const bindings = [typeofUser, fullName, contactNumber, email, req.params.userID];
+            const bindings = [req.params.userID, typeofUser, fullName, contactNumber, email];
 
             await connection.execute(sql, bindings);
 

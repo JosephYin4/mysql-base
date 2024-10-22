@@ -5,6 +5,16 @@
 {{#block "content"}}
 <h1>Edit New User</h1>
 <form method="POST">
+   <!-- <div class="mb-3">
+        <label>User ID</label>
+        <select name="userID" class="form-control">
+            {{#each companies}}
+            <option value="{{company_id}}" 
+                {{#eq company_id  ../customer.company_id}} selected {{/eq}}
+             >{{name}}</option>
+            {{/each}}
+        </select>
+    </div> -->
     <div class="mb-3">
         <label>Type of User</label>
         <input type="text" 
