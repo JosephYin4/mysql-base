@@ -87,6 +87,78 @@ async function main() {
         res.redirect('/userdetail');
     });
 
+    //Create a new user in Property_Details Table
+    app.get('/propertydetail/create', async(req,res)=>{
+        let [propertydetail] = await connection.execute('SELECT * FROM Property_Details');
+        res.render('propertydetail/create', {
+            'propertydetail': propertydetail
+        })
+    })
+
+    app.post('/propertydetail/create', async function (req, res) {
+        // req.body will contain what the user has submitted through the form
+        // we are using PREPARED STATEMENTS (to counter SQL injection attacks)
+        const sql = `
+            INSERT INTO Property_Details (nameofProperty, address, postalCode, numberofBedrooms,
+             numberofBathrooms, carparkLots, amenities, askingBaseRent)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?);`
+
+        const bindings = [
+            req.body.nameofProperty,
+            req.body.address,
+            req.body.postalCode,
+            req.body.numberofBedrooms,
+            req.body.numberofBathrooms,
+            req.body.carparkLots,
+            req.body.amenities,
+            req.body.askingBaseRent
+
+        ]
+
+        // first parameter = the SQL statemnet to execute
+        // second parameter = bindings, or the parameter for the question marks, in order
+        await connection.execute(sql, bindings);
+
+        // redirect tells the client (often time the broswer) to go a different URL
+        res.redirect('/propertydetail');
+    });
+
+    //Create a new user in Tenancy_Details Table
+        app.get('/tenancydetail/create', async(req,res)=>{
+            let [tenancydetail] = await connection.execute('SELECT * FROM Tenancy_Details');
+            res.render('tenancydetail/create', {
+                'tenancydetail': tenancydetail
+            })
+        })
+    
+    app.post('/tenancydetail/create', async function (req, res) {
+            // req.body will contain what the user has submitted through the form
+            // we are using PREPARED STATEMENTS (to counter SQL injection attacks)
+            const sql = `
+                INSERT INTO Tenancy_Details (dateStarted, durationofTenancy, baserentalAmount, depostiAmount,
+                 subtenantsFullName, propertyID, userID)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?);`
+    
+            const bindings = [
+                req.body.dateStarted,
+                req.body.durationofTenancy,
+                req.body.baserentalAmount,
+                req.body.depositAmount,
+                req.body.subtenantsFullName,
+                req.body.carparkLots,
+                req.body.propertyID,
+                req.body.userID
+    
+            ]
+    
+            // first parameter = the SQL statemnet to execute
+            // second parameter = bindings, or the parameter for the question marks, in order
+            await connection.execute(sql, bindings);
+    
+            // redirect tells the client (often time the broswer) to go a different URL
+            res.redirect('/tenancydetail');
+        });
+
     app.get('/userdetail/:userID/edit', async function (req, res) {
         // fetch the User Details we are editing
         const userId = req.params.userID;
