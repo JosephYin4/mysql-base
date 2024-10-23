@@ -5,12 +5,12 @@
 {{#block "content"}}
 <h1>Edit New User</h1>
 <form method="POST">
-   <!-- <div class="mb-3">
+   <!--<div class="mb-3">
         <label>User ID</label>
         <select name="userID" class="form-control">
-            {{#each companies}}
-            <option value="{{company_id}}" 
-                {{#eq company_id  ../customer.company_id}} selected {{/eq}}
+            {{#each userdetail1}}
+            <option value="{{userID}}" 
+                {{#eq userID  ../userId.userID}} selected {{/eq}}
              >{{name}}</option>
             {{/each}}
         </select>
@@ -46,16 +46,7 @@
                value="{{userdetail1.email}}"
                />
     </div>
-   <!-- <div class="mb-3">
-        <label>Company</label>
-        <select name="company_id" class="form-control">
-            {{#each companies}}
-            <option value="{{company_id}}" 
-                {{#eq company_id  ../customer.company_id}} selected {{/eq}}
-             >{{name}}</option>
-            {{/each}}
-        </select>
-    </div> -->
+
     <button class="btn btn-primary">Submit</button>
 </form>
 {{/block}}

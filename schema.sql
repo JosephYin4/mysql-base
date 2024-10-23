@@ -24,6 +24,7 @@ CREATE TABLE Property_Details (
     numberofBathrooms TINYINT UNSIGNED NULL,
     carparkLots TINYINT UNSIGNED NULL,
     amenities TEXT NULL,
+    askingBaseRent INT NULL,
 
     PRIMARY KEY (propertyID)
 );

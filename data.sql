@@ -13,17 +13,17 @@ INSERT INTO User_Details (typeofUser, fullName, contactNumber, email) VALUES
 ('homeowner', 'Ivy League', '901-234-5678', 'ivy.league@example.com'),
 ('staff', 'Jack Sparrow', '012-345-6789', 'jack.sparrow@example.com');
 
-INSERT INTO Property_Details (nameofProperty, address, postalCode, numberofBedrooms, numberofBathrooms, carparkLots, amenities) VALUES
-('Sunshine Villa', '123 Jalan Skudai, Johor Bahru', '81200', 4, 3, 2, 'Pool, Gym'),
-('Green Haven', '456 Jalan Taman Perling, Johor Bahru', '81200', 3, 2, 1, 'Garden, Playground'),
-('City View Apartment', '789 Jalan Sutera, Johor Bahru', '81300', 2, 2, 1, 'Gym, 24/7 Security'),
-('Serenity Home', '101 Jalan Tebrau, Johor Bahru', '80300', 5, 4, 3, 'Pool, BBQ Area'),
-('Cozy Corner', '202 Jalan Dato Abdullah Tahir, Johor Bahru', '80300', 2, 1, 1, 'Close to MRT'),
-('Tropical Retreat', '303 Jalan Sg. Abong, Johor Bahru', '81200', 4, 3, 2, 'Garden, Wi-Fi'),
-('Family Residence', '404 Jalan Maju, Johor Bahru', '80300', 3, 2, 2, 'Playground, Gym'),
-('Urban Oasis', '505 Jalan Larkin, Johor Bahru', '80300', 2, 2, 1, 'Swimming Pool, Parking'),
-('Luxury Condo', '606 Jalan Adda, Johor Bahru', '81100', 3, 2, 1, 'Gym, Security'),
-('Elegant Suites', '707 Jalan Taman Molek, Johor Bahru', '81100', 1, 1, 1, 'Close to shopping mall');
+INSERT INTO Property_Details (nameofProperty, address, postalCode, numberofBedrooms, numberofBathrooms, carparkLots, amenities, askingBaseRent) VALUES
+('Sunshine Villa', '123 Jalan Skudai, Johor Bahru', '81200', 4, 3, 2, 'Pool, Gym', 3000),
+('Green Haven', '456 Jalan Taman Perling, Johor Bahru', '81200', 3, 2, 1, 'Garden, Playground', 2500),
+('City View Apartment', '789 Jalan Sutera, Johor Bahru', '81300', 2, 2, 1, 'Gym, 24/7 Security', 2000),
+('Serenity Home', '101 Jalan Tebrau, Johor Bahru', '80300', 5, 4, 3, 'Pool, BBQ Area', 5000),
+('Cozy Corner', '202 Jalan Dato Abdullah Tahir, Johor Bahru', '80300', 2, 1, 1, 'Close to MRT', 2300),
+('Tropical Retreat', '303 Jalan Sg. Abong, Johor Bahru', '81200', 4, 3, 2, 'Garden, Wi-Fi', 3100),
+('Family Residence', '404 Jalan Maju, Johor Bahru', '80300', 3, 2, 2, 'Playground, Gym', 2600),
+('Urban Oasis', '505 Jalan Larkin, Johor Bahru', '80300', 2, 2, 1, 'Swimming Pool, Parking', 2100),
+('Luxury Condo', '606 Jalan Adda, Johor Bahru', '81100', 3, 2, 1, 'Gym, Security', 2400),
+('Elegant Suites', '707 Jalan Taman Molek, Johor Bahru', '81100', 1, 1, 1, 'Close to shopping mall', 2000);
 
 INSERT INTO Tenancy_Details (dateStarted, durationofTenancy, baserentalAmount, depositAmount, subtenantsFullName, propertyID, userID) VALUES
 ('2023-01-15', 12, 1500.00, 3000.00, 'Alice Wong, John Tan', 1, 1),

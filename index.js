@@ -105,7 +105,23 @@ async function main() {
             await connection.execute(sql, bindings);
 
             res.redirect("/userdetail");
+    })
         
+    app.get('/userdetail/:userID/delete', async function(req,res){
+                // display a confirmation form 
+                const [userdetail] = await connection.execute(
+                    "SELECT * FROM User_Details WHERE userID =?", [req.params.userID]
+                );
+                const userId = userdetail[0];
+        
+                res.render('userdetail/delete', {
+                    userId
+                })
+    })
+
+    app.post('/userdetail/:userID/delete', async function(req, res){
+        await connection.execute(`DELETE FROM User_Details WHERE userID = ?`, [req.params.userID]);
+        res.redirect('/userdetail');
     })
 }
 
