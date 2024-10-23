@@ -41,6 +41,21 @@ async function main() {
         })
     })
 
+    //Display the Property_Details Table Data
+    app.get('/propertydetail', async (req, res) => {
+        let [propertydetail] = await connection.execute('SELECT * FROM Property_Details');
+        res.render('propertydetail/index', {
+            'propertydetail': propertydetail
+        })
+    })
+
+    app.get('/tenancydetail', async (req, res) => {
+        let [tenancydetail] = await connection.execute('SELECT * FROM Tenancy_Details');
+        res.render('tenancydetail/index', {
+            'tenancydetail': tenancydetail
+        })
+    })
+
     //Create a new user in User_Details Table
     app.get('/userdetail/create', async(req,res)=>{
         let [userdetail] = await connection.execute('SELECT * FROM User_Details');

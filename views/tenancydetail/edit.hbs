@@ -1,0 +1,54 @@
+{{#extends "base"}}
+
+{{#block "title"}}Edit New User{{/block}}
+
+{{#block "content"}}
+<h1>Edit New User</h1>
+<form method="POST">
+   <!--<div class="mb-3">
+        <label>User ID</label>
+        <select name="userID" class="form-control">
+            {{#each userdetail1}}
+            <option value="{{userID}}" 
+                {{#eq userID  ../userId.userID}} selected {{/eq}}
+             >{{name}}</option>
+            {{/each}}
+        </select>
+    </div> -->
+    <div class="mb-3">
+        <label>Type of User</label>
+        <input type="text" 
+               class="form-control" 
+               name="typeofUser"
+               value="{{userdetail1.typeofUser}}"/>
+    </div>
+    <div class="mb-3">
+        <label>FullName</label>
+        <input type="text" 
+               class="form-control" 
+               name="fullName"
+               value="{{userdetail1.fullName}}"
+               />
+    </div>
+    <div class="mb-3">
+        <label>Contact Number</label>
+        <input type="text" 
+               class="form-control" 
+               name="contactNumber"
+               value="{{userdetail1.contactNumber}}"
+               />
+    </div>
+        <div class="mb-3">
+        <label>Email</label>
+        <input type="text" 
+               class="form-control" 
+               name="email"
+               value="{{userdetail1.email}}"
+               />
+    </div>
+
+    <button class="btn btn-primary">Submit</button>
+</form>
+{{/block}}
+
+{{/extends}}

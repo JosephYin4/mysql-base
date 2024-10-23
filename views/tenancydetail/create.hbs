@@ -1,0 +1,37 @@
+{{#extends "base"}}
+
+{{#block "title"}}Create New User{{/block}}
+
+{{#block "content"}}
+
+<h1>Add a New User</h1>
+<form method="POST">
+ <!--   <div class="mb-3">
+        <label>Type of User</label>
+        <select name="userID" class="form-control">
+            {{#each userdetail}}
+            <option value="{{userID}}">{{typeofUser}}</option>
+            {{/each}}
+        </select>
+    </div> -->
+    <div class="mb-3">
+        <label>Type of User</label>
+        <input type="text" class="form-control" name="typeofUser">
+    </div>
+    <div class="mb-3">
+        <label>FullName</label>
+        <input type="text" class="form-control" name="fullName">
+    </div>
+    <div class="mb-3">
+        <label>Contact Number</label>
+        <input type="text" class="form-control" name="contactNumber">
+    </div>
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="text" class="form-control" name="email">
+    </div>
+    <button class="btn btn-primary">Submit</button>
+
+</form>
+{{/block}}
+{{/extends}}
