@@ -135,9 +135,9 @@ async function main() {
             // req.body will contain what the user has submitted through the form
             // we are using PREPARED STATEMENTS (to counter SQL injection attacks)
             const sql = `
-                INSERT INTO Tenancy_Details (dateStarted, durationofTenancy, baserentalAmount, depostiAmount,
+                INSERT INTO Tenancy_Details (dateStarted, durationofTenancy, baserentalAmount, depositAmount,
                  subtenantsFullName, propertyID, userID)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?);`
+                VALUES (?, ?, ?, ?, ?, ?, ?);`
     
             const bindings = [
                 req.body.dateStarted,
@@ -145,7 +145,6 @@ async function main() {
                 req.body.baserentalAmount,
                 req.body.depositAmount,
                 req.body.subtenantsFullName,
-                req.body.carparkLots,
                 req.body.propertyID,
                 req.body.userID
     
