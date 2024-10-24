@@ -57,8 +57,8 @@ CREATE TABLE Payments (
     tenancyID INT UNSIGNED NOT NULL,
     KEY FK_User1 (userID),
     CONSTRAINT FK_User1 FOREIGN KEY (userID) REFERENCES User_Details (userID),
-    KEY FK_Tenancy (tenancyID),
-    CONSTRAINT FK_Tenancy FOREIGN KEY (tenancyID) REFERENCES Tenancy_Details (userID)
+    KEY FK_Tenancy1 (tenancyID),
+    CONSTRAINT FK_Tenancy1 FOREIGN KEY (tenancyID) REFERENCES Tenancy_Details (tenancyID)
 );
 
 CREATE TABLE Issues (

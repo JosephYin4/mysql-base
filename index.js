@@ -221,7 +221,8 @@ async function main() {
         // req.body will contain what the user has submitted through the form
         // we are using PREPARED STATEMENTS (to counter SQL injection attacks)
         const sql = `
-            INSERT INTO Issues (typeofIssue, locationofIssue, issuedescriptionDetails, dateOpen, dateClosed, issuestatusRemarks, issuecurrentStatus, issueSubmittedByID, issueResolvedByID)
+            INSERT INTO Issues (typeofIssue, locationofIssue, issuedescriptionDetails, dateOpen, dateClosed, 
+            issuestatusRemarks, issuecurrentStatus, issueSubmittedByID, issueResolvedByID) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);`
 
         const bindings = [
@@ -229,11 +230,11 @@ async function main() {
             req.body.locationofIssue,
             req.body.issuedescriptionDetails,
             req.body.dateOpen,
-            req.body.dateClosed,
+            req.body.dateClosed || null,
             req.body.issuestatusRemarks,
             req.body.issuecurrentStatus,
             req.body.issueSubmittedByID,
-            req.body.issueResolvedByID
+            req.body.issueResolvedByID || null
 
         ]
 
