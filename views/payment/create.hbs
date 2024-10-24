@@ -1,0 +1,50 @@
+{{#extends "base"}}
+
+{{#block "title"}}Create New Payment{{/block}}
+
+{{#block "content"}}
+
+<h1>Create a New Payment</h1>
+<form method="POST">
+ <!--   <div class="mb-3">
+        <label>Type of User</label>
+        <select name="userID" class="form-control">
+            {{#each userdetail}}
+            <option value="{{userID}}">{{typeofUser}}</option>
+            {{/each}}
+        </select>
+    </div> -->
+    <div class="mb-3">
+        <label>Type of Payment</label>
+        <input type="text" class="form-control" name="typeofPayment">
+    </div>
+    <div class="mb-3">
+        <label>Date Paid</label>
+        <input type="date" class="form-control" name="datePaid">
+    </div>
+    <div class="mb-3">
+        <label>Receiver Name</label>
+        <input type="text" class="form-control" name="receiverName">
+    </div>
+    <div class="mb-3">
+        <label>Payment Invoice Number</label>
+        <input type="text" class="form-control" name="paymentInvoiceNumber">
+    </div>
+        <div class="mb-3">
+        <label>Remarks</label>
+        <input type="text" class="form-control" name="remarks">
+    </div>
+    <div class="mb-3">
+        <label>Payer UserID</label>
+        <input type="number" class="form-control" name="userID">
+    </div>
+    <div class="mb-3">
+        <label>Tenancy ID</label>
+        <input type="number" class="form-control" name="tenancyID">
+    </div>
+
+    <button class="btn btn-primary">Submit</button>
+
+</form>
+{{/block}}
+{{/extends}}

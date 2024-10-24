@@ -140,7 +140,7 @@ async function main() {
     });
 
     //Create a new user in Tenancy_Details Table
-        app.get('/tenancydetail/create', async(req,res)=>{
+    app.get('/tenancydetail/create', async(req,res)=>{
             let [tenancydetail] = await connection.execute('SELECT * FROM Tenancy_Details');
             res.render('tenancydetail/create', {
                 'tenancydetail': tenancydetail
@@ -174,6 +174,42 @@ async function main() {
             res.redirect('/tenancydetail');
         });
 
+    //Create a new user in Payments Table
+    app.get('/payment/create', async(req,res)=>{
+        let [payment] = await connection.execute('SELECT * FROM Payments');
+        res.render('payment/create', {
+            'payment': payment
+        })
+    })
+
+    app.post('/payment/create', async function (req, res) {
+        // req.body will contain what the user has submitted through the form
+        // we are using PREPARED STATEMENTS (to counter SQL injection attacks)
+        const sql = `
+            INSERT INTO Payments (typeofPayment, datePaid, receiverName, paymentInvoiceNumber,
+             remarks, userID, tenancyID)
+            VALUES (?, ?, ?, ?, ?, ?, ?);`
+
+        const bindings = [
+            req.body.typeofPayment,
+            req.body.datePaid,
+            req.body.receiverName,
+            req.body.paymentInvoiceNumber,
+            req.body.remarks,
+            req.body.userID,
+            req.body.tenancyID
+
+        ]
+
+        // first parameter = the SQL statemnet to execute
+        // second parameter = bindings, or the parameter for the question marks, in order
+        await connection.execute(sql, bindings);
+
+        // redirect tells the client (often time the broswer) to go a different URL
+        res.redirect('/payment');
+    });
+
+    //Edit User Details
     app.get('/userdetail/:userID/edit', async function (req, res) {
         // fetch the User Details we are editing
         const userId = req.params.userID;

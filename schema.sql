@@ -48,7 +48,7 @@ CREATE TABLE Tenancy_Details (
 
 CREATE TABLE Payments (
     paymentID INT AUTO_INCREMENT PRIMARY KEY,
-    typeofPayment ENUM('deposit', 'monthlyrental', 'electricbill', 'waterandgasbill', 'repairs', 'replacements', 'new purchase', 'returnofdeposit', 'other') NOT NULL,
+    typeofPayment TEXT NOT NULL,
     datePaid DATE NOT NULL,
     receiverName VARCHAR(255) NOT NULL,
     paymentInvoiceNumber VARCHAR(255) NOT NULL,
@@ -63,13 +63,13 @@ CREATE TABLE Payments (
 
 CREATE TABLE Issues (
     issueID INT AUTO_INCREMENT PRIMARY KEY,
-    typeofIssue ENUM('Aircon', 'Heater', 'Lights', 'Plumbing', 'Electrical', 'Other') NOT NULL,
-    locationofIssue ENUM('Kitchen', 'Toilet', 'Living Room', 'MasterBedroom', 'Bedroom', 'Bathroom', 'Other') NOT NULL,
+    typeofIssue TEXT NOT NULL, 
+    locationofIssue TEXT NOT NULL,
     issuedescriptionDetails TEXT,
     dateOpen DATE NOT NULL,
     dateClosed DATE,
     issuestatusRemarks TEXT,
-    issuecurrentStatus ENUM('open', 'solved', 'wip', 'unresolved') NOT NULL,
+    issuecurrentStatus TEXT NOT NULL,
     issueSubmittedByID INT UNSIGNED NOT NULL,
     issueResolvedByID INT UNSIGNED,
     KEY FK_IssueSubmittedBy (issueSubmittedByID),
