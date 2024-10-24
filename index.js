@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const wax = require('wax-on');
 require('dotenv').config();
 const { createConnection } = require('mysql2/promise');
+const path = require('path');
 
 let app = express();
 app.set('view engine', 'hbs');
@@ -30,8 +31,16 @@ async function main() {
     })
 
     app.get('/', (req,res) => {
-        res.send('Hello, World!');
+        res.send('Welcome to HomeRentCare Rental Management System');
     });
+
+    //Display the Dashboard with Some Selected Data from different Tables
+    app.get('/dashboard', async (req, res) => {
+        let [dashboard] = await connection.execute('SELECT * FROM Tenancy_Details JOIN Property_Details');
+        res.render('dashboard/index', {
+            'dashboard': dashboard
+        })
+    })
 
     //Display the User_Details Table Data
     app.get('/userdetail', async (req, res) => {

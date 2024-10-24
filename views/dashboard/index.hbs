@@ -1,0 +1,47 @@
+{{#extends "base"}}
+{{#block "content"}}
+<h1>Overview Dashboard</h1>
+<table class="table">
+    <tr>
+        <th>Tenancy ID</th>
+        <th>Date Started</th>
+        <th>Duration of Tenancy in Months</th>
+        <th>Base Rental Amount in RM</th>
+        <th>Deposit Amount</th>
+        <th>Subtenants Fullnames</th>
+        <th>Property ID</th>
+        <th>User ID</th>
+        <th>Property ID</th>
+        <th>Name of Property</th>
+        <th>Address</th>
+        <th>Postal Code</th>
+        <th>Bedrooms</th>
+        <th>Bathrooms</th>
+        <th>Carparklots</th>
+        <th>Amenities</th>
+        <th>Asking BaseRent in RM</th>
+    </tr>
+    {{#each dashboard}}
+    <tr>
+        <td>{{tenancyID}}</td>
+        <td>{{dateStarted}}</td>
+        <td>{{durationofTenancy}}</td>
+        <td>{{baserentalAmount}}</td>
+        <td>{{depositAmount}}</td>
+        <td>{{subtenantsFullName}}</td>
+        <td>{{propertyID}}</td>
+        <td>{{userID}}</td>
+        <td>{{propertyID}}</td>
+        <td>{{nameofProperty}}</td>
+        <td>{{address}}</td>
+        <td>{{postalCode}}</td>
+        <td>{{numberofBedrooms}}</td>
+        <td>{{numberofBathrooms}}</td>
+        <td>{{carparkLots}}</td>
+        <td>{{amenities}}</td>
+        <td>{{askingBaseRent}}</td>
+    </tr>
+    {{/each}}
+</table>
+{{/block}}
+{{/extends}}
