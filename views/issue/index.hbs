@@ -1,0 +1,33 @@
+{{#extends "base"}}
+{{#block "content"}}
+<h1>Issues Section</h1>
+<table class="table">
+    <tr>
+        <th>Issue ID</th>
+        <th>Type of Issue</th>
+        <th>Location of Issue</th>
+        <th>Issue Description Details</th>
+        <th>Date Open</th>
+        <th>Date Closed</th>
+        <th>Issue Status Remarks</th>
+        <th>Issue Current Status</th>
+        <th>Issue Submitted By UserID</th>
+        <th>Issue Resolved By UserID</th>
+    </tr>
+    {{#each issue}}
+    <tr>
+        <td>{{issueID}}</td>
+        <td>{{typeofIssue}}</td>
+        <td>{{locationofIssue}}</td>
+        <td>{{issuedescriptionDetails}}</td>
+        <td>{{dateOpen}}</td>
+        <td>{{dateClosed}}</td>
+        <td>{{issuestatusRemarks}}</td>
+        <td>{{issuecurrentStatus}}</td>
+        <td>{{issueSubmittedByID}}</td>
+        <td>{{issueResolvedByID}}</td>
+    </tr>
+    {{/each}}
+</table>
+{{/block}}
+{{/extends}}

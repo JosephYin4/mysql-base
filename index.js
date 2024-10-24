@@ -48,11 +48,27 @@ async function main() {
             'propertydetail': propertydetail
         })
     })
-
+    //Display the Tenancy_Details Table Data
     app.get('/tenancydetail', async (req, res) => {
         let [tenancydetail] = await connection.execute('SELECT * FROM Tenancy_Details');
         res.render('tenancydetail/index', {
             'tenancydetail': tenancydetail
+        })
+    })
+
+    //Display the Payments Table Data
+    app.get('/payment', async (req, res) => {
+        let [payment] = await connection.execute('SELECT * FROM Payments');
+        res.render('payment/index', {
+            'payment': payment
+        })
+    })
+
+    //Display the Issues Table Data
+    app.get('/issue', async (req, res) => {
+        let [issue] = await connection.execute('SELECT * FROM Issues');
+        res.render('issue/index', {
+            'issue': issue
         })
     })
 
