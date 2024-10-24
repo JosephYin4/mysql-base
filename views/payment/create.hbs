@@ -1,6 +1,6 @@
 {{#extends "base"}}
 
-{{#block "title"}}Create New Payment{{/block}}
+{{#block "title"}}Create New Issue{{/block}}
 
 {{#block "content"}}
 
@@ -15,7 +15,8 @@
         </select>
     </div> -->
     <div class="mb-3">
-        <label>Type of Payment</label>
+        <label>Type of Payment (deposit, monthly rental, electricity bill, water and gas bill, repairs, replacements,
+            new purchase, return of deposit, other)</label>
         <input type="text" class="form-control" name="typeofPayment">
     </div>
     <div class="mb-3">
@@ -39,7 +40,7 @@
         <input type="number" class="form-control" name="userID">
     </div>
     <div class="mb-3">
-        <label>Tenancy ID</label>
+        <label>Tenancy UserID</label>
         <input type="number" class="form-control" name="tenancyID">
     </div>
 

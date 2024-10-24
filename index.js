@@ -209,6 +209,42 @@ async function main() {
         res.redirect('/payment');
     });
 
+    //Create a new user in Issues Table
+    app.get('/issue/create', async(req,res)=>{
+        let [issue] = await connection.execute('SELECT * FROM Issues');
+        res.render('issue/create', {
+            'issue': issue
+        })
+    })
+
+    app.post('/issue/create', async function (req, res) {
+        // req.body will contain what the user has submitted through the form
+        // we are using PREPARED STATEMENTS (to counter SQL injection attacks)
+        const sql = `
+            INSERT INTO Issues (typeofIssue, locationofIssue, issuedescriptionDetails, dateOpen, dateClosed, issuestatusRemarks, issuecurrentStatus, issueSubmittedByID, issueResolvedByID)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);`
+
+        const bindings = [
+            req.body.typeofIssue,
+            req.body.locationofIssue,
+            req.body.issuedescriptionDetails,
+            req.body.dateOpen,
+            req.body.dateClosed,
+            req.body.issuestatusRemarks,
+            req.body.issuecurrentStatus,
+            req.body.issueSubmittedByID,
+            req.body.issueResolvedByID
+
+        ]
+
+        // first parameter = the SQL statemnet to execute
+        // second parameter = bindings, or the parameter for the question marks, in order
+        await connection.execute(sql, bindings);
+
+        // redirect tells the client (often time the broswer) to go a different URL
+        res.redirect('/issue');
+    });
+
     //Edit User Details
     app.get('/userdetail/:userID/edit', async function (req, res) {
         // fetch the User Details we are editing

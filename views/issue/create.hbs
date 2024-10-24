@@ -1,0 +1,58 @@
+{{#extends "base"}}
+
+{{#block "title"}}Create New Issue{{/block}}
+
+{{#block "content"}}
+
+<h1>Create a New Issue</h1>
+<form method="POST">
+ <!--   <div class="mb-3">
+        <label>Type of User</label>
+        <select name="userID" class="form-control">
+            {{#each userdetail}}
+            <option value="{{userID}}">{{typeofUser}}</option>
+            {{/each}}
+        </select>
+    </div> -->
+    <div class="mb-3">
+        <label>Type of Issue (Aircon, Heater, Lights, Plumbing, Electrical, Other)</label>
+        <input type="text" class="form-control" name="typeofIssue">
+    </div>
+    <div class="mb-3">
+        <label>Location of Issue (Living Room, MasterBedroom, Kitchen, Bedroom, Bathroom, Toilet, Other)</label>
+        <input type="text" class="form-control" name="locationofIssue">
+    </div>
+    <div class="mb-3">
+        <label>Issue Description and Details</label>
+        <input type="text" class="form-control" name="issuedescriptionDetails">
+    </div>
+    <div class="mb-3">
+        <label>Date Open</label>
+        <input type="date" class="form-control" name="dateOpen">
+    </div>
+        <div class="mb-3">
+        <label>Date Closed</label>
+        <input type="date" class="form-control" name="dateClosed">
+    </div>
+    <div class="mb-3">
+        <label>Issue Status/Remarks</label>
+        <input type="text" class="form-control" name="issuestatusRemarks">
+    </div>
+    <div class="mb-3">
+        <label>Issue Current Status (open, wip, solved, unresolved)</label>
+        <input type="text" class="form-control" name="issuecurrentStatus">
+    </div>
+    <div class="mb-3">
+        <label>Issue Submitted By UserID</label>
+        <input type="number" class="form-control" name="issueSubmittedByID">
+    </div>
+    <div class="mb-3">
+        <label>Issue Resolved By UserID</label>
+        <input type="number" class="form-control" name="issueResolvedByID">
+    </div>
+
+    <button class="btn btn-primary">Submit</button>
+
+</form>
+{{/block}}
+{{/extends}}
