@@ -36,7 +36,7 @@ async function main() {
 
     //Display the Dashboard with Some Selected Data from different Tables
     app.get('/dashboard', async (req, res) => {
-        let [dashboard] = await connection.execute('SELECT * FROM Tenancy_Details JOIN Property_Details');
+        let [dashboard] = await connection.execute('SELECT * FROM User_Details');
         res.render('dashboard/index', {
             'dashboard': dashboard
         })
