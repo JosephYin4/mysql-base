@@ -69,7 +69,8 @@ async function main() {
 
     //Display the Payments Table Data
     app.get('/payment', async (req, res) => {
-        let [payment] = await connection.execute('SELECT * FROM Payments');
+        let [payment] = await connection.execute(`SELECT *, DATE_FORMAT(Payments.datePaid, '%d-%m-%Y')
+             AS date_paid FROM Payments`);
         res.render('payment/index', {
             'payment': payment
         })
@@ -77,7 +78,9 @@ async function main() {
 
     //Display the Issues Table Data
     app.get('/issue', async (req, res) => {
-        let [issue] = await connection.execute('SELECT * FROM Issues');
+        let [issue] = await connection.execute(`SELECT *, DATE_FORMAT(Issues.dateOpen, '%d-%m-%Y') 
+            AS open_date,DATE_FORMAT(Issues.dateClosed, '%d-%m-%Y') 
+            AS close_date FROM Issues`);
         res.render('issue/index', {
             'issue': issue
         })
