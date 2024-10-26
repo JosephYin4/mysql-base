@@ -336,7 +336,7 @@ async function main() {
             res.redirect("/propertydetail");
     })
 
-    //Edit Property Details
+    //Edit Tenancy Details
     app.get('/tenancydetail/:tenancyID/edit', async function (req, res) {
         // fetch the Tenancy Details we are editing
         const tenancyId = req.params.tenancyID;
@@ -345,6 +345,45 @@ async function main() {
         // 2. send what is the data for each ?
         // Do you ESCAPE your MySQL statements
         const [tenancydetail] = await connection.execute(`SELECT * FROM Tenancy_Details WHERE tenancyID = ?`, [tenancyId]);
+
+        // MySQL2 will always return an array of results even if there is only one result
+        const tenancydetail1 = tenancydetail[0]; // retrieve the tenancy details that we want to edit which will be at index 0
+
+        // send the tenancydetail to the hbs file so the user can see details prefilled in the form
+        res.render('tenancydetail/edit', {
+            tenancydetail1, // => same as 'tenancydetail' : tenancydetail
+        })
+    })
+
+    app.post('/tenancydetail/:tenancyID/edit', async function (req, res) {
+        
+            const { dateStarted, durationofTenancy, baserentalAmount, depositAmount, subtenantsFullName,
+                propertyID, userID } = req.body;
+
+           // if (!first_name || !last_name || !company_id || !rating) {
+           //     throw new Exception("Invalid values");
+           //  }
+
+            const sql = `UPDATE Tenancy_Details SET dateStarted=?, durationofTenancy=?, baserentalAmount=?, depositAmount=?,
+             subtenantsFullName=?, propertyID=?, userID=? WHERE tenancyID = ?;`
+
+            const bindings = [dateStarted, durationofTenancy, baserentalAmount, depositAmount, subtenantsFullName,
+                propertyID, userID, req.params.tenancyID];
+
+            await connection.execute(sql, bindings);
+
+            res.redirect("/tenancydetail");
+    })
+
+    //Edit Payment
+    app.get('/payment/:paymentID/edit', async function (req, res) {
+        // fetch the Payment Details we are editing
+        const paymentId = req.params.paymentID;
+        // in prepared statements, we give the instructions to MySQL in 2 pass
+        // 1. the prepared statement - so SQL knows what we are executing and won't execute anything else
+        // 2. send what is the data for each ?
+        // Do you ESCAPE your MySQL statements
+        const [payment] = await connection.execute(`SELECT * FROM Payments WHERE paymentID = ?`, [paymentId]);
 
         // MySQL2 will always return an array of results even if there is only one result
         const tenancydetail1 = tenancydetail[0]; // retrieve the tenancy details that we want to edit which will be at index 0

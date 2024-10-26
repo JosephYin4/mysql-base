@@ -1,0 +1,78 @@
+{{#extends "base"}}
+
+{{#block "title"}}Edit Tenancy{{/block}}
+
+{{#block "content"}}
+<h1>Edit Tenancy Details</h1>
+<form method="POST">
+   <!--<div class="mb-3">
+        <label>User ID</label>
+        <select name="userID" class="form-control">
+            {{#each userdetail1}}
+            <option value="{{userID}}" 
+                {{#eq userID  ../userId.userID}} selected {{/eq}}
+             >{{name}}</option>
+            {{/each}}
+        </select>
+    </div> -->
+    <div class="mb-3">
+        <label>Date Started</label>
+        <input type="date" 
+               class="form-control" 
+               name="dateStarted"
+               value="{{tenancydetail1.dateStarted}}"/>
+    </div>
+    <div class="mb-3">
+        <label>Duration of Tenancy in Months</label>
+        <input type="number" 
+               class="form-control" 
+               name="durationofTenancy"
+               value="{{tenancydetail1.durationofTenancy}}"
+               />
+    </div>
+    <div class="mb-3">
+        <label>Base Rental Amount</label>
+        <input type="number" 
+               class="form-control" 
+               name="baserentalAmount"
+               value="{{tenancydetail1.baserentalAmount}}"
+               />
+    </div>
+        <div class="mb-3">
+        <label>Deposit Amount</label>
+        <input type="number" 
+               class="form-control" 
+               name="depositAmount"
+               value="{{tenancydetail1.depositAmount}}"
+               />
+    </div>
+    <div class="mb-3">
+        <label>Subtenants FullNames</label>
+        <input type="text" 
+               class="form-control" 
+               name="subtenantsFullName"
+               value="{{tenancydetail1.subtenantsFullName}}"
+               />
+    </div>
+    <div class="mb-3">
+        <label>Property ID</label>
+        <input type="number" 
+               class="form-control" 
+               name="propertyID"
+               value="{{tenancydetail1.propertyID}}"
+               />
+    </div>
+    <div class="mb-3">
+        <label>User ID</label>
+        <input type="number" 
+               class="form-control" 
+               name="userID"
+               value="{{tenancydetail1.userID}}"
+               />
+    </div>
+
+    <button class="btn btn-primary">Submit</button>
+</form>
+{{/block}}
+
+{{/extends}}
