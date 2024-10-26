@@ -1,9 +1,9 @@
 {{#extends "base"}}
 
-{{#block "title"}}Edit Tenancy{{/block}}
+{{#block "title"}}Edit Payment{{/block}}
 
 {{#block "content"}}
-<h1>Edit Tenancy Details</h1>
+<h1>Edit Payment Details</h1>
 <form method="POST">
    <!--<div class="mb-3">
         <label>User ID</label>
@@ -16,58 +16,58 @@
         </select>
     </div> -->
     <div class="mb-3">
-        <label>Date Started</label>
-        <input type="date" 
+        <label>Type of Payment</label>
+        <input type="text" 
                class="form-control" 
-               name="dateStarted"
-               value="{{tenancydetail1.dateStarted}}"/>
+               name="typeofPayment"
+               value="{{payment1.typeofPayment}}"/>
     </div>
     <div class="mb-3">
-        <label>Duration of Tenancy in Months</label>
-        <input type="number" 
+        <label>Date Paid</label>
+        <input type="date" 
                class="form-control" 
-               name="durationofTenancy"
-               value="{{tenancydetail1.durationofTenancy}}"
+               name="datePaid"
+               value="{{payment1.datePaid}}"
                />
     </div>
     <div class="mb-3">
-        <label>Base Rental Amount</label>
-        <input type="number" 
+        <label>Receiver Name</label>
+        <input type="text" 
                class="form-control" 
-               name="baserentalAmount"
-               value="{{tenancydetail1.baserentalAmount}}"
+               name="receiverName"
+               value="{{payment1.receiverName}}"
                />
     </div>
         <div class="mb-3">
-        <label>Deposit Amount</label>
-        <input type="number" 
-               class="form-control" 
-               name="depositAmount"
-               value="{{tenancydetail1.depositAmount}}"
-               />
-    </div>
-    <div class="mb-3">
-        <label>Subtenants FullNames</label>
+        <label>Payment Invoice Number</label>
         <input type="text" 
                class="form-control" 
-               name="subtenantsFullName"
-               value="{{tenancydetail1.subtenantsFullName}}"
+               name="paymentInvoiceNumber"
+               value="{{payment1.paymentInvoiceNumber}}"
                />
     </div>
     <div class="mb-3">
-        <label>Property ID</label>
-        <input type="number" 
+        <label>Remarks</label>
+        <input type="text" 
                class="form-control" 
-               name="propertyID"
-               value="{{tenancydetail1.propertyID}}"
+               name="remarks"
+               value="{{payment1.remarks}}"
                />
     </div>
     <div class="mb-3">
-        <label>User ID</label>
+        <label>Payer UserID</label>
         <input type="number" 
                class="form-control" 
                name="userID"
-               value="{{tenancydetail1.userID}}"
+               value="{{payment1.userID}}"
+               />
+    </div>
+    <div class="mb-3">
+        <label>Tenancy ID</label>
+        <input type="number" 
+               class="form-control" 
+               name="tenancyID"
+               value="{{payment1.tenancyID}}"
                />
     </div>
 

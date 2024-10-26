@@ -386,32 +386,32 @@ async function main() {
         const [payment] = await connection.execute(`SELECT * FROM Payments WHERE paymentID = ?`, [paymentId]);
 
         // MySQL2 will always return an array of results even if there is only one result
-        const tenancydetail1 = tenancydetail[0]; // retrieve the tenancy details that we want to edit which will be at index 0
+        const payment1 = payment[0]; // retrieve the tenancy details that we want to edit which will be at index 0
 
-        // send the tenancydetail to the hbs file so the user can see details prefilled in the form
-        res.render('tenancydetail/edit', {
-            tenancydetail1, // => same as 'tenancydetail' : tenancydetail
+        // send the payment to the hbs file so the user can see details prefilled in the form
+        res.render('payment/edit', {
+            payment1, // => same as 'payment' : payment
         })
     })
 
-    app.post('/tenancydetail/:tenancyID/edit', async function (req, res) {
+    app.post('/payment/:paymentID/edit', async function (req, res) {
         
-            const { dateStarted, durationofTenancy, baserentalAmount, depositAmount, subtenantsFullName,
-                propertyID, userID } = req.body;
+            const { typeofPayment, datePaid, receiverName, paymentInvoiceNumber, remarks,
+                userID, tenancyID } = req.body;
 
            // if (!first_name || !last_name || !company_id || !rating) {
            //     throw new Exception("Invalid values");
            //  }
 
-            const sql = `UPDATE Tenancy_Details SET dateStarted=?, durationofTenancy=?, baserentalAmount=?, depositAmount=?,
-             subtenantsFullName=?, propertyID=?, userID=? WHERE tenancyID = ?;`
+            const sql = `UPDATE Payments SET typeofPayment=?, datePaid=?, receiverName=?, paymentInvoiceNumber=?,
+             remarks=?, userID=?, tenancyID=? WHERE paymentID = ?;`
 
-            const bindings = [dateStarted, durationofTenancy, baserentalAmount, depositAmount, subtenantsFullName,
-                propertyID, userID, req.params.tenancyID];
+            const bindings = [typeofPayment, datePaid, receiverName, paymentInvoiceNumber, remarks,
+                userID, tenancyID, req.params.paymentID];
 
             await connection.execute(sql, bindings);
 
-            res.redirect("/tenancydetail");
+            res.redirect("/payment");
     })
 
     //Delete Functions
