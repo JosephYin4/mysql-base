@@ -414,6 +414,41 @@ async function main() {
             res.redirect("/payment");
     })
 
+    //Edit Issue
+    app.get('/issue/:issueID/edit', async function (req, res) {
+        // fetch the Issue Details we are editing
+        const issueId = req.params.issueID;
+        // in prepared statements, we give the instructions to MySQL in 2 pass
+        // 1. the prepared statement - so SQL knows what we are executing and won't execute anything else
+        // 2. send what is the data for each ?
+        // Do you ESCAPE your MySQL statements
+        const [issue] = await connection.execute(`SELECT * FROM Issues WHERE issueID = ?`, [issueId]);
+
+        // MySQL2 will always return an array of results even if there is only one result
+        const issue1 = issue[0]; // retrieve the issue details that we want to edit which will be at index 0
+
+        // send the issue to the hbs file so the user can see details prefilled in the form
+        res.render('issue/edit', {
+            issue1, // => same as 'issue' : issue
+        })
+    })
+
+    app.post('/issue/:issueID/edit', async function (req, res) {
+        
+            const { typeofIssue, locationofIssue, issuedescriptionDetails, dateOpen,
+                dateClosed, issuestatusRemarks, issuecurrentStatus, issueSubmittedByID, issueResolvedByID } = req.body;
+
+            const sql = `UPDATE Issues SET typeofIssue=?, locationofIssue=?, issuedescriptionDetails=?, 
+            dateOpen=?, dateClosed=?, issuestatusRemarks=?, issuecurrentStatus=?, issueSubmittedByID=?, issueResolvedByID=? WHERE issueID = ?;`
+
+            const bindings = [typeofIssue, locationofIssue, issuedescriptionDetails, dateOpen,
+                dateClosed || null, issuestatusRemarks, issuecurrentStatus, issueSubmittedByID, issueResolvedByID, req.params.issueID];
+
+            await connection.execute(sql, bindings);
+
+            res.redirect("/issue");
+    })
+
     //Delete Functions
     app.get('/userdetail/:userID/delete', async function(req,res){
                 // display a confirmation form 

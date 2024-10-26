@@ -16,58 +16,74 @@
         </select>
     </div> -->
     <div class="mb-3">
-        <label>Date Started</label>
-        <input type="date" 
+        <label>Type of Issue</label>
+        <input type="text" 
                class="form-control" 
-               name="dateStarted"
-               value="{{tenancydetail1.dateStarted}}"/>
+               name="typeofIssue"
+               value="{{issue1.typeofIssue}}"/>
     </div>
     <div class="mb-3">
-        <label>Duration of Tenancy in Months</label>
-        <input type="number" 
+        <label>Location of Issue</label>
+        <input type="text" 
                class="form-control" 
-               name="durationofTenancy"
-               value="{{tenancydetail1.durationofTenancy}}"
+               name="locationofIssue"
+               value="{{issue1.locationofIssue}}"
                />
     </div>
     <div class="mb-3">
-        <label>Base Rental Amount</label>
-        <input type="number" 
+        <label>Issue Description Details</label>
+        <input type="text" 
                class="form-control" 
-               name="baserentalAmount"
-               value="{{tenancydetail1.baserentalAmount}}"
+               name="issuedescriptionDetails"
+               value="{{issue1.issuedescriptionDetails}}"
                />
     </div>
         <div class="mb-3">
-        <label>Deposit Amount</label>
-        <input type="number" 
+        <label>Date Open</label>
+        <input type="date" 
                class="form-control" 
-               name="depositAmount"
-               value="{{tenancydetail1.depositAmount}}"
+               name="dateOpen"
+               value="{{payment1.dateOpen}}"
                />
     </div>
     <div class="mb-3">
-        <label>Subtenants FullNames</label>
+        <label>Date Closed</label>
+        <input type="date" 
+               class="form-control" 
+               name="dateClosed"
+               value="{{payment1.dateClosed}}"
+               />
+    </div>
+    <div class="mb-3">
+        <label>Issue Status Remarks</label>
         <input type="text" 
                class="form-control" 
-               name="subtenantsFullName"
-               value="{{tenancydetail1.subtenantsFullName}}"
+               name="issuestatusRemarks"
+               value="{{issue1.issuestatusRemarks}}"
                />
     </div>
     <div class="mb-3">
-        <label>Property ID</label>
-        <input type="number" 
+        <label>Issue Current Status</label>
+        <input type="text" 
                class="form-control" 
-               name="propertyID"
-               value="{{tenancydetail1.propertyID}}"
+               name="issuecurrentStatus"
+               value="{{payment1.issuecurrentStatus}}"
                />
     </div>
-    <div class="mb-3">
-        <label>User ID</label>
+        <div class="mb-3">
+        <label>Issue Submitted By UserID</label>
         <input type="number" 
                class="form-control" 
-               name="userID"
-               value="{{tenancydetail1.userID}}"
+               name="issueSubmittedByID"
+               value="{{payment1.issueSubmittedByID}}"
+               />
+    </div>
+        <div class="mb-3">
+        <label>Issue Resolved By UserID</label>
+        <input type="number" 
+               class="form-control" 
+               name="issueResolvedByID"
+               value="{{payment1.issueResolvedByID}}"
                />
     </div>
 
