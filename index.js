@@ -61,7 +61,8 @@ async function main() {
     })
     //Display the Tenancy_Details Table Data
     app.get('/tenancydetail', async (req, res) => {
-        let [tenancydetail] = await connection.execute('SELECT * FROM Tenancy_Details');
+        let [tenancydetail] = await connection.execute(`SELECT *, DATE_FORMAT(Tenancy_Details.dateStarted, 
+            '%d-%m-%Y') AS date_started FROM Tenancy_Details`);
         res.render('tenancydetail/index', {
             'tenancydetail': tenancydetail
         })
