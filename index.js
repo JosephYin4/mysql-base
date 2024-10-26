@@ -296,7 +296,47 @@ async function main() {
 
             res.redirect("/userdetail");
     })
+    
+    //Edit Property Details
+    app.get('/propertydetail/:propertyID/edit', async function (req, res) {
+        // fetch the Property Details we are editing
+        const propertyId = req.params.propertyID;
+        // in prepared statements, we give the instructions to MySQL in 2 pass
+        // 1. the prepared statement - so SQL knows what we are executing and won't execute anything else
+        // 2. send what is the data for each ?
+        // Do you ESCAPE your MySQL statements
+        const [propertydetail] = await connection.execute(`SELECT * FROM Property_Details WHERE propertyID = ?`, [propertyId]);
+
+        // MySQL2 will always return an array of results even if there is only one result
+        const propertydetail1 = propertydetail[0]; // retrieve the property details that we want to edit which will be at index 0
+
+        // send the propertydetail to the hbs file so the user can see details prefilled in the form
+        res.render('propertydetail/edit', {
+            propertydetail1, // => same as 'propertydetail' : propertydetail
+        })
+    })
+
+    app.post('/propertydetail/:propertyID/edit', async function (req, res) {
         
+            const { nameofProperty, address, postalCode, numberofBedrooms, numberofBathrooms,
+                carparkLots, amenities, askingBaseRent } = req.body;
+
+           // if (!first_name || !last_name || !company_id || !rating) {
+           //     throw new Exception("Invalid values");
+           //  }
+
+            const sql = `UPDATE Property_Details SET nameofProperty=?, address=?, postalCode=?, numberofBedrooms=?,
+             numberofBathrooms=?, carparkLots=?, amenities=?, askingBaseRent=? WHERE propertyID = ?;`
+
+            const bindings = [nameofProperty, address, postalCode, numberofBedrooms, numberofBathrooms, 
+                carparkLots, amenities, askingBaseRent, req.params.propertyID];
+
+            await connection.execute(sql, bindings);
+
+            res.redirect("/propertydetail");
+    })
+
+    //Delete Functions
     app.get('/userdetail/:userID/delete', async function(req,res){
                 // display a confirmation form 
                 const [userdetail] = await connection.execute(

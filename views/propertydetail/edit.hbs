@@ -1,9 +1,9 @@
 {{#extends "base"}}
 
-{{#block "title"}}Edit New User{{/block}}
+{{#block "title"}}Edit Property Listing{{/block}}
 
 {{#block "content"}}
-<h1>Edit New User</h1>
+<h1>Edit Property Listing</h1>
 <form method="POST">
    <!--<div class="mb-3">
         <label>User ID</label>
@@ -16,34 +16,66 @@
         </select>
     </div> -->
     <div class="mb-3">
-        <label>Type of User</label>
+        <label>Name of Property</label>
         <input type="text" 
                class="form-control" 
-               name="typeofUser"
-               value="{{userdetail1.typeofUser}}"/>
+               name="nameofProperty"
+               value="{{propertydetail1.nameofProperty}}"/>
     </div>
     <div class="mb-3">
-        <label>FullName</label>
+        <label>Address</label>
         <input type="text" 
                class="form-control" 
-               name="fullName"
-               value="{{userdetail1.fullName}}"
+               name="address"
+               value="{{propertydetail1.address}}"
                />
     </div>
     <div class="mb-3">
-        <label>Contact Number</label>
+        <label>Postal Code</label>
         <input type="text" 
                class="form-control" 
-               name="contactNumber"
-               value="{{userdetail1.contactNumber}}"
+               name="postalCode"
+               value="{{propertydetail1.postalCode}}"
                />
     </div>
         <div class="mb-3">
-        <label>Email</label>
+        <label>Number of Bedrooms</label>
+        <input type="number" 
+               class="form-control" 
+               name="numberofBedrooms"
+               value="{{propertydetail1.numberofBedrooms}}"
+               />
+    </div>
+    <div class="mb-3">
+        <label>Number of Bathrooms</label>
+        <input type="number" 
+               class="form-control" 
+               name="numberofBathrooms"
+               value="{{propertydetail1.numberofBathrooms}}"
+               />
+    </div>
+    <div class="mb-3">
+        <label>Number of Car Park Lots</label>
+        <input type="number" 
+               class="form-control" 
+               name="carparkLots"
+               value="{{propertydetail1.carparkLots}}"
+               />
+    </div>
+    <div class="mb-3">
+        <label>Amenities</label>
         <input type="text" 
                class="form-control" 
-               name="email"
-               value="{{userdetail1.email}}"
+               name="amenities"
+               value="{{propertydetail1.amenities}}"
+               />
+    </div>
+        <div class="mb-3">
+        <label>Asking BaseRent</label>
+        <input type="number" 
+               class="form-control" 
+               name="askingBaseRent"
+               value="{{propertydetail1.askingBaseRent}}"
                />
     </div>
 
