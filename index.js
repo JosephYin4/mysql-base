@@ -365,6 +365,23 @@ async function main() {
         res.redirect('/payment');
     })
 
+    app.get('/issue/:issueID/delete', async function(req,res){
+        // display a confirmation form 
+        const [payment] = await connection.execute(
+            "SELECT * FROM Payments WHERE paymentID =?", [req.params.paymentID]
+        );
+        const paymentId = payment[0];
+
+        res.render('payment/delete', {
+            paymentId
+        })
+    })
+
+    app.post('/issue/:issueID/delete', async function(req, res){
+        await connection.execute(`DELETE FROM Payments WHERE paymentID = ?`, [req.params.paymentID]);
+        res.redirect('/payment');
+    })
+
 }
 
 main();
