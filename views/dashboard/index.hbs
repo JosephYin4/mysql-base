@@ -1,28 +1,17 @@
 {{#extends "base"}}
 {{#block "content"}}
-<h1 align="center">Dashboard</h1>
-<h2><u>User Details</u></h2>
+<h1 align="center">Welcome To HomeRentCare Property Rental Database</h1>
+
 <table class="table">
+
     <tr>
-        <th>User ID</th>
-        <th>Type of User</th>
-        <th>FullName</th>
-        <th>Contact Number</th>
-        <th>Email</th>
+        <th><a href="/userdetail" class="btn btn-primary btn-lg">View Users Information </th>
+        <th><a href="/propertydetail" class="btn btn-primary btn-lg">View Property Listings </th>
+        <th><a href="/tenancydetail" class="btn btn-primary btn-lg">View Tenancy Details </th>
+        <th><a href="/payment" class="btn btn-primary btn-lg">View Payment Details </th>
+        <th><a href="/issue" class="btn btn-primary btn-lg">View Issue Details </th>
     </tr>
-    {{#each dashboard}}
-    <tr>
-        <td>{{userID}}</td>
-        <td>{{typeofUser}}</td>
-        <td>{{fullName}}</td>
-        <td>{{contactNumber}}</td>
-        <td>{{email}}</td>
-        <td>
-                <a href="/userdetail/{{userID}}/edit" class="btn btn-primary btn-sm">Edit</a>
-                <a href="/userdetail/{{userID}}/delete" class="btn btn-danger btn-sm">Delete</a>
-        </td>
-    </tr>
-    {{/each}}
 </table>
+
 {{/block}}
 {{/extends}}

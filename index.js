@@ -36,15 +36,11 @@ async function main() {
             res.render('dashboard/index', {
                 'dashboard': dashboard
             })
-     })
+        });
 
     app.get('/', async (req,res) => {
-        //res.send('Welcome to HomeRentCare Rental Management System');
-        let [dashboard] = await connection.execute('SELECT * FROM User_Details');
-        res.render('dashboard/index', {
-            'dashboard': dashboard
-        })
-    });
+        res.send('Welcome to HomeRentCare Rental Management System');
+          });
 
 
 
@@ -534,8 +530,8 @@ async function main() {
         await connection.execute(`DELETE FROM Issues WHERE issueID = ?`, [req.params.issueID]);
         res.redirect('/issue');
     })
-
 }
+
 
 main();
 
