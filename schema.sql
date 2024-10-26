@@ -50,6 +50,7 @@ CREATE TABLE Payments (
     paymentID INT AUTO_INCREMENT PRIMARY KEY,
     typeofPayment TEXT NOT NULL,
     datePaid DATE NOT NULL,
+    amountPaid INT NOT NULL,
     receiverName VARCHAR(255) NOT NULL,
     paymentInvoiceNumber VARCHAR(255) NOT NULL,
     remarks TEXT,

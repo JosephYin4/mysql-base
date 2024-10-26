@@ -26,8 +26,13 @@
         <td>{{issuecurrentStatus}}</td>
         <td>{{issueSubmittedByID}}</td>
         <td>{{issueResolvedByID}}</td>
+        <td>
+            <a href="/issue/{{issueID}}/edit" class="btn btn-primary btn-sm">Edit</a>
+            <a href="/issue/{{issueID}}/delete" class="btn btn-danger btn-sm">Delete</a>
+        </td>
     </tr>
     {{/each}}
+            <a href="/issue/{{issueID}}/create" class="btn btn-danger btn-sm">Create New Issue</a>
 </table>
 {{/block}}
 {{/extends}}

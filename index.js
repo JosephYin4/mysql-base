@@ -197,13 +197,14 @@ async function main() {
         // req.body will contain what the user has submitted through the form
         // we are using PREPARED STATEMENTS (to counter SQL injection attacks)
         const sql = `
-            INSERT INTO Payments (typeofPayment, datePaid, receiverName, paymentInvoiceNumber,
+            INSERT INTO Payments (typeofPayment, datePaid, amountPaid, receiverName, paymentInvoiceNumber,
              remarks, userID, tenancyID)
-            VALUES (?, ?, ?, ?, ?, ?, ?);`
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?);`
 
         const bindings = [
             req.body.typeofPayment,
             req.body.datePaid,
+            req.body.amountPaid,
             req.body.receiverName,
             req.body.paymentInvoiceNumber,
             req.body.remarks,
@@ -392,17 +393,17 @@ async function main() {
 
     app.post('/payment/:paymentID/edit', async function (req, res) {
         
-            const { typeofPayment, datePaid, receiverName, paymentInvoiceNumber, remarks,
+            const { typeofPayment, datePaid, amountPaid, receiverName, paymentInvoiceNumber, remarks,
                 userID, tenancyID } = req.body;
 
            // if (!first_name || !last_name || !company_id || !rating) {
            //     throw new Exception("Invalid values");
            //  }
 
-            const sql = `UPDATE Payments SET typeofPayment=?, datePaid=?, receiverName=?, paymentInvoiceNumber=?,
+            const sql = `UPDATE Payments SET typeofPayment=?, datePaid=?, amountPaid=?, receiverName=?, paymentInvoiceNumber=?,
              remarks=?, userID=?, tenancyID=? WHERE paymentID = ?;`
 
-            const bindings = [typeofPayment, datePaid, receiverName, paymentInvoiceNumber, remarks,
+            const bindings = [typeofPayment, datePaid, amountPaid, receiverName, paymentInvoiceNumber, remarks,
                 userID, tenancyID, req.params.paymentID];
 
             await connection.execute(sql, bindings);

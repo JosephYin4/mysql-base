@@ -6,6 +6,7 @@
         <th>Payment ID</th>
         <th>Type of Payment</th>
         <th>Date Paid</th>
+        <th>Amount Paid in RM</th>
         <th>Receiver Name</th>
         <th>Payment Invoice Number</th>
         <th>Remarks</th>
@@ -18,13 +19,19 @@
         <td>{{paymentID}}</td>
         <td>{{typeofPayment}}</td>
         <td>{{datePaid}}</td>
+        <td>{{amountPaid}}</td>
         <td>{{receiverName}}</td>
         <td>{{paymentInvoiceNumber}}</td>
         <td>{{remarks}}</td>
         <td>{{userID}}</td>
         <td>{{tenancyID}}</td>
+        <td>
+            <a href="/payment/{{paymentID}}/edit" class="btn btn-primary btn-sm">Edit</a>
+            <a href="/payment/{{paymentID}}/delete" class="btn btn-danger btn-sm">Delete</a>
+        </td>
     </tr>
     {{/each}}
+            <a href="/payment/{{paymentID}}/create" class="btn btn-danger btn-sm">Create New Payment</a>
 </table>
 {{/block}}
 {{/extends}}
