@@ -23,8 +23,14 @@
         <td>{{subtenantsFullName}}</td>
         <td>{{propertyID}}</td>
         <td>{{userID}}</td>
+        <td>
+            <a href="/tenancydetail/{{tenancyID}}/edit" class="btn btn-primary btn-sm">Edit</a>
+            <a href="/tenancydetail/{{tenancyID}}/delete" class="btn btn-danger btn-sm">Delete</a>
+        </td>
     </tr>
+
     {{/each}}
+        <a href="/tenancydetail/{{tenancyID}}/create" class="btn btn-danger btn-sm">Create New Tenancy Record</a>
 </table>
 {{/block}}
 {{/extends}}

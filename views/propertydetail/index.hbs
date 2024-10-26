@@ -24,8 +24,13 @@
         <td>{{carparkLots}}</td>
         <td>{{amenities}}</td>
         <td>{{askingBaseRent}}</td>
+        <td>
+            <a href="/propertydetail/{{propertyID}}/edit" class="btn btn-primary btn-sm">Edit</a>
+            <a href="/propertydetail/{{propertyID}}/delete" class="btn btn-danger btn-sm">Delete</a>
+        </td>
     </tr>
     {{/each}}
+            <a href="/propertydetail/{{propertyID}}/create" class="btn btn-danger btn-sm">Create New Property Listing</a>
 </table>
 {{/block}}
 {{/extends}}
