@@ -1,14 +1,14 @@
 {{#extends "base"}}
 
-{{#block "title"}}Delete Property Listing{{/block}}
+{{#block "title"}}Delete Payment{{/block}}
 
 {{#block "content"}}
 <form method="POST">
     <div class="alert alert-danger">
-        Are you sure you want to delete {{propertyId.nameofProperty}}
+        Are you sure you want to delete Payment with ID {{paymentId.paymentID}}?
         <div>
             <input type="submit" value="Confirm" class="btn btn-danger"/>
-            <a href="/propertydetail" class="btn btn-primary">Cancel</a>
+            <a href="/payment" class="btn btn-primary">Cancel</a>
         </div>
     </div>
 </form>

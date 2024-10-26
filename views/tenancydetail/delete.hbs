@@ -1,14 +1,14 @@
 {{#extends "base"}}
 
-{{#block "title"}}Delete User{{/block}}
+{{#block "title"}}Delete Tenancy{{/block}}
 
 {{#block "content"}}
 <form method="POST">
     <div class="alert alert-danger">
-        Are you sure you want to delete {{userId.fullName}}
+        Are you sure you want to delete Tenancy with ID {{tenancyId.tenancyID}}?
         <div>
             <input type="submit" value="Confirm" class="btn btn-danger"/>
-            <a href="/userdetail" class="btn btn-primary">Cancel</a>
+            <a href="/tenancydetail" class="btn btn-primary">Cancel</a>
         </div>
     </div>
 </form>

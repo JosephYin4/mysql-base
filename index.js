@@ -30,17 +30,23 @@ async function main() {
         'password': process.env.DB_PASSWORD
     })
 
-    app.get('/', (req,res) => {
-        res.send('Welcome to HomeRentCare Rental Management System');
-    });
-
     //Display the Dashboard with Some Selected Data from different Tables
     app.get('/dashboard', async (req, res) => {
+            let [dashboard] = await connection.execute('SELECT * FROM User_Details');
+            res.render('dashboard/index', {
+                'dashboard': dashboard
+            })
+     })
+
+    app.get('/', async (req,res) => {
+        //res.send('Welcome to HomeRentCare Rental Management System');
         let [dashboard] = await connection.execute('SELECT * FROM User_Details');
         res.render('dashboard/index', {
             'dashboard': dashboard
         })
-    })
+    });
+
+
 
     //Display the User_Details Table Data
     app.get('/userdetail', async (req, res) => {
@@ -307,6 +313,58 @@ async function main() {
         await connection.execute(`DELETE FROM User_Details WHERE userID = ?`, [req.params.userID]);
         res.redirect('/userdetail');
     })
+
+    app.get('/tenancydetail/:tenancyID/delete', async function(req,res){
+        // display a confirmation form 
+        const [tenancydetail] = await connection.execute(
+            "SELECT * FROM Tenancy_Details WHERE tenancyID =?", [req.params.tenancyID]
+        );
+        const tenancyId = tenancydetail[0];
+
+        res.render('tenancydetail/delete', {
+            tenancyId
+        })  
+    })
+
+    app.post('/tenancydetail/:tenancyID/delete', async function(req, res){
+        await connection.execute(`DELETE FROM Tenancy_Details WHERE tenancyID = ?`, [req.params.tenancyID]);
+        res.redirect('/tenancydetail');
+    })
+
+    app.get('/propertydetail/:propertyID/delete', async function(req,res){
+        // display a confirmation form 
+        const [propertydetail] = await connection.execute(
+            "SELECT * FROM Property_Details WHERE propertyID =?", [req.params.propertyID]
+        );
+        const propertyId = propertydetail[0];
+
+        res.render('propertydetail/delete', {
+            propertyId
+        })
+    })
+
+    app.post('/propertydetail/:propertyID/delete', async function(req, res){
+        await connection.execute(`DELETE FROM Property_Details WHERE propertyID = ?`, [req.params.propertyID]);
+        res.redirect('/propertydetail');
+    })
+
+    app.get('/payment/:paymentID/delete', async function(req,res){
+        // display a confirmation form 
+        const [payment] = await connection.execute(
+            "SELECT * FROM Payments WHERE paymentID =?", [req.params.paymentID]
+        );
+        const paymentId = payment[0];
+
+        res.render('payment/delete', {
+            paymentId
+        })
+    })
+
+    app.post('/payment/:paymentID/delete', async function(req, res){
+        await connection.execute(`DELETE FROM Payments WHERE paymentID = ?`, [req.params.paymentID]);
+        res.redirect('/payment');
+    })
+
 }
 
 main();
