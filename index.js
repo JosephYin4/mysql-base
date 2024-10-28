@@ -8,6 +8,7 @@ const path = require('path');
 let app = express();
 app.set('view engine', 'hbs');
 app.use(express.static('public'));
+//app.use(express.static('img'));
 app.use(express.urlencoded({extended:false}));
 
 wax.on(hbs.handlebars);
