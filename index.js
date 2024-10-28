@@ -30,18 +30,25 @@ async function main() {
         'password': process.env.DB_PASSWORD
     })
 
-    //Display the Dashboard with Some Selected Data from different Tables
-    app.get('/dashboard', async (req, res) => {
-            let [dashboard] = await connection.execute('SELECT * FROM User_Details');
-            res.render('dashboard/index', {
-                'dashboard': dashboard
-            })
-        });
-
     app.get('/', async (req,res) => {
         res.send('Welcome to HomeRentCare Rental Management System');
           });
 
+    //Display the Dashboard for selecting different Views
+    app.get('/dashboard', async (req, res) => {
+        //let [dashboard] = await connection.execute('SELECT * FROM User_Details');
+        res.render('dashboard/index', {
+                //'dashboard': dashboard
+        })
+    });
+
+    //Display the Search Tables Form for Querying
+    app.get('/search', async (req, res) => {
+         let [search] = await connection.execute('SELECT * FROM User_Details');
+        res.render('dashboard/index', {
+                'search': search
+        })
+    });
 
 
     //Display the User_Details Table Data
