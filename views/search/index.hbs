@@ -1,0 +1,28 @@
+{{#extends "base"}}
+{{#block "content"}}
+<h1>User Details</h1>
+<table class="table">
+    <tr>
+        <th>User ID</th>
+        <th>Type of User</th>
+        <th>FullName</th>
+        <th>Contact Number</th>
+        <th>Email</th>
+    </tr>
+    {{#each userdetail}}
+    <tr>
+        <td>{{userID}}</td>
+        <td>{{typeofUser}}</td>
+        <td>{{fullName}}</td>
+        <td>{{contactNumber}}</td>
+        <td>{{email}}</td>
+        <td>
+            <a href="/userdetail/{{userID}}/edit" class="btn btn-primary btn-sm">Edit</a>
+            <a href="/userdetail/{{userID}}/delete" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+    </tr>
+    {{/each}}
+    <a href="/userdetail/{{userID}}/create" class="btn btn-danger btn-sm">Create New User</a>
+</table>
+{{/block}}
+{{/extends}}

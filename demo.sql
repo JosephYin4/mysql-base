@@ -4,6 +4,9 @@ SELECT * FROM Property_Details WHERE numberofBedrooms = 2;
 
 SELECT * FROM Property_Details WHERE numberofBedrooms >= 3 AND amenities LIKE "%pool%";
 
+select User_Details.userID AS User_Details_userID, User_Details.typeofUser, Tenancy_Details.userID AS Tenancy_Details_userID, Tenancy_Details.dateStarted
+  FROM User_Details JOIN Tenancy_Details;
+
 SELECT nameofProperty, baserentalAmount, numberofBedrooms, typeofUser, fullName, contactNumber 
 FROM Property_Details JOIN Tenancy_Details JOIN User_Details WHERE typeofUser = "homeowner" 
 ORDER BY nameofProperty, baserentalAmount, numberofBedrooms;
@@ -14,7 +17,7 @@ INSERT INTO User_Details (typeofUser, fullName, contactNumber, email) VALUES
 
 
 -- Perform at least 1 UPDATE statement on the table
---update parents set first_name="Tang", last_name="Thomas" WHERE parent_id=1;
+--update parents set first_name="Tang", last_name="Thomas" WHERE parent_id=1;SELECT nameofProperty, baserentalAmount, numberofBedrooms, typeofUser, fullName, contactNumber 
 UPDATE User_Details set typeofUser='agent', fullName='Joseph Yin', 
 contactNumber='91111111', email='josephyin@gmail.com' WHERE UserID = 11; 
 

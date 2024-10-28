@@ -31,11 +31,11 @@ INSERT INTO Tenancy_Details (dateStarted, durationofTenancy, baserentalAmount, d
 ('2023-03-05', 6, 1200.00, 2400.00, 'Siti Rahman, Omar Ali', 3, 3),
 ('2023-04-10', 18, 2500.00, 5000.00, 'John Doe, Jane Smith', 4, 4),
 ('2023-05-12', 12, 1800.00, 3600.00, 'Fatima Ali, Rina Hassan', 5, 5),
-('2023-06-01', 36, 2200.00, 4400.00, 'Rajesh Kumar, Nisha Patel', 6, 1),
-('2023-07-15', 12, 1600.00, 3200.00, 'Emma Johnson, Chris Lim', 7, 2),
-('2023-08-20', 24, 2100.00, 4200.00, 'David Lim, Hannah Lee', 8, 3),
-('2023-09-10', 30, 1900.00, 3800.00, 'Zara Khan, Ali Rizwan', 9, 4),
-('2023-10-05', 6, 1300.00, 2600.00, 'Maya Chen, Anil Singh', 10, 5);
+('2023-06-01', 36, 2200.00, 4400.00, 'Rajesh Kumar, Nisha Patel', 6, 6),
+('2023-07-15', 12, 1600.00, 3200.00, 'Emma Johnson, Chris Lim', 7, 7),
+('2023-08-20', 24, 2100.00, 4200.00, 'David Lim, Hannah Lee', 8, 8),
+('2023-09-10', 30, 1900.00, 3800.00, 'Zara Khan, Ali Rizwan', 9, 9),
+('2023-10-05', 6, 1300.00, 2600.00, 'Maya Chen, Anil Singh', 10, 10);
 
 INSERT INTO Payments (typeofPayment, datePaid, amountPaid, receiverName, paymentInvoiceNumber, remarks, userID, tenancyID) VALUES
 ('deposit', '2024-01-15', 4000, 'John Doe', 'INV-1001', 'Initial deposit for tenancy', 1, 1),

@@ -46,7 +46,7 @@ async function main() {
     //Display the Search Tables Form for Querying
     app.get('/search', async (req, res) => {
          let [search] = await connection.execute('SELECT * FROM User_Details');
-        res.render('dashboard/index', {
+        res.render('/search', {
                 'search': search
         })
     });
