@@ -13,6 +13,7 @@ INSERT INTO User_Details (typeofUser, fullName, contactNumber, email) VALUES
 ('homeowner', 'Ivy League', '901-234-5678', 'ivy.league@example.com'),
 ('staff', 'Jack Sparrow', '012-345-6789', 'jack.sparrow@example.com');
 
+
 INSERT INTO Property_Details (nameofProperty, address, postalCode, numberofBedrooms, numberofBathrooms, carparkLots, amenities, askingBaseRent) VALUES
 ('Sunshine Villa', '123 Jalan Skudai, Johor Bahru', '81200', 4, 3, 2, 'Pool, Gym', 3000),
 ('Green Haven', '456 Jalan Taman Perling, Johor Bahru', '81200', 3, 2, 1, 'Garden, Playground', 2500),
@@ -25,6 +26,7 @@ INSERT INTO Property_Details (nameofProperty, address, postalCode, numberofBedro
 ('Luxury Condo', '606 Jalan Adda, Johor Bahru', '81100', 3, 2, 1, 'Gym, Security', 2400),
 ('Elegant Suites', '707 Jalan Taman Molek, Johor Bahru', '81100', 1, 1, 1, 'Close to shopping mall', 2000);
 
+
 INSERT INTO Tenancy_Details (dateStarted, durationofTenancy, baserentalAmount, depositAmount, subtenantsFullName, propertyID, userID) VALUES
 ('2023-01-15', 12, 1500.00, 3000.00, 'Alice Wong, John Tan', 1, 1),
 ('2023-02-20', 24, 2000.00, 4000.00, 'Michael Tan, Sarah Lee', 2, 2),
@@ -36,6 +38,7 @@ INSERT INTO Tenancy_Details (dateStarted, durationofTenancy, baserentalAmount, d
 ('2023-08-20', 24, 2100.00, 4200.00, 'David Lim, Hannah Lee', 8, 8),
 ('2023-09-10', 30, 1900.00, 3800.00, 'Zara Khan, Ali Rizwan', 9, 9),
 ('2023-10-05', 6, 1300.00, 2600.00, 'Maya Chen, Anil Singh', 10, 10);
+
 
 INSERT INTO Payments (typeofPayment, datePaid, amountPaid, receiverName, paymentInvoiceNumber, remarks, userID, tenancyID) VALUES
 ('deposit', '2024-01-15', 4000, 'John Doe', 'INV-1001', 'Initial deposit for tenancy', 1, 1),

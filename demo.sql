@@ -4,8 +4,9 @@ SELECT * FROM Property_Details WHERE numberofBedrooms = 2;
 
 SELECT * FROM Property_Details WHERE numberofBedrooms >= 3 AND amenities LIKE "%pool%";
 
-select User_Details.userID AS User_Details_userID, User_Details.typeofUser, Tenancy_Details.userID AS Tenancy_Details_userID, Tenancy_Details.dateStarted
-  FROM User_Details JOIN Tenancy_Details;
+select User_Details.userID AS User_Details_userID, User_Details.typeofUser, User_Details.fullName, 
+Tenancy_Details.userID AS Tenancy_Details_userID, Tenancy_Details.dateStarted 
+FROM User_Details JOIN Tenancy_Details;
 
 SELECT nameofProperty, baserentalAmount, numberofBedrooms, typeofUser, fullName, contactNumber 
 FROM Property_Details JOIN Tenancy_Details JOIN User_Details WHERE typeofUser = "homeowner" 
