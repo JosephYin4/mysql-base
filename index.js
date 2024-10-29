@@ -45,7 +45,7 @@ async function main() {
 
     //Display the Search Tables Form for Querying
     app.get('/search', async (req, res) => {
-         let [search] = await connection.execute(`SELECT User_Details.userID AS User_Details_userID, User_Details.typeofUser, User_Details.fullName, Tenancy_Details.userID AS Tenancy_Details_userID, DATE_FORMAT(Tenancy_Details.dateStarted, '%d-%m-%Y') AS date_started FROM User_Details JOIN Tenancy_Details;`);
+         let [search] = await connection.execute(`SELECT User_Details.userID AS User_Details_userID, User_Details.typeofUser, User_Details.fullName, Tenancy_Details.userID AS Tenancy_Details_userID, DATE_FORMAT(Tenancy_Details.dateStarted, '%d-%m-%Y') AS date_started, nameofProperty FROM Tenancy_Details LEFT JOIN User_Details ON Tenancy_Details.userID=User_Details.userID LEFT JOIN Property_Details ON Tenancy_Details.propertyID=Property_Details.propertyID;`);
         res.render('search/index', {
                 'search': search
         })
