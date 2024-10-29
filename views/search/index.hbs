@@ -1,7 +1,9 @@
 {{#extends "base"}}
 {{#block "content"}}
+
 <h1>Sample Search Data</h1>
 <table class="table">
+    <tr><th><u>User Details</u></th>><th></th><th></th><th><u>Tenancy Details</u></th><th></th><th><u>Name of Property</u></th></tr>
     <tr>
         <th>User_Details_userID</th>
         <th>Type of User</th>
@@ -9,26 +11,25 @@
         <th>Tenancy_Details_userID</th>
         <th>Date Started</th>
         <th>Property Name</th>
-      <!--  <th>Contact Number</th>
-        <th>Email</th> -->
+        <th>Address</th>
+        <th>Postal Code</th>
     </tr>
-    {{#each search}}
+
+        {{#each search}}
+
     <tr>
-        <td>{{User_Details_userID}}</td>
-        <td>{{typeofUser}}</td>
-        <td>{{fullName}}</td>
         <td>{{Tenancy_Details_userID}}</td>
         <td>{{date_started}}</td>
         <td>{{nameofProperty}}</td>
-      <!--  <td>{{contactNumber}}</td>
-        <td>{{email}}</td> -->
-        <!--<td>
-            <a href="/userdetail/{{userID}}/edit" class="btn btn-primary btn-sm">Edit</a>
-            <a href="/userdetail/{{userID}}/delete" class="btn btn-danger btn-sm">Delete</a>
-        </td> -->
+        <td>{{User_Details_userID}}</td>
+        <td>{{typeofUser}}</td>
+        <td>{{fullName}}</td>
+        <td>{{address}}</td>
+        <td>{{postalCode}}</td>
     </tr>
-    {{/each}}
-   <!-- <a href="/userdetail/{{userID}}/create" class="btn btn-danger btn-sm">Create New User</a> -->
+        {{/each}}
 </table>
+
+
 {{/block}}
 {{/extends}}
